@@ -1,0 +1,20 @@
+{
+  "name": "ArmyBot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "botkit"
+  ],
+  "author": "KaiLx",
+  "license": "MIT",
+  "dependencies": {
+    "ava": "^0.19.1",
+    "botkit": "^0.5.4",
+    "typescript": "^2.3.2",
+    "typings": "^2.1.1"
+  }
+}
