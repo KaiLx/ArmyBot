@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "tsc && node index.js",
+    "serve": "typings install && tsc && node index.js",
     "test": "typings install && tsc && ava"
   },
   "keywords": [
