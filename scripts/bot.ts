@@ -2,20 +2,36 @@
  * Created by KaiLx on 2017/05/03.
  */
 let Botkit = require('botkit');
-import Logger from './scripts/logger';
-import * as Monitor from './scripts/logMonitor'
+import Logger from './logger';
+import * as Monitor from './logMonitor'
 import * as Moment from 'moment';
 
-// xoxb-178103882658-Q3Os1XqvepDfVbTBp0Gcwlzw
-let controller = Botkit.slackbot({
+Logger.info('ArmyBot startup.');
+
+if (process.env.BOT_TOKEN == null) {
+    Logger.error('BOT_TOKEN is not found in env.');
+    console.log('起動変数、もしくは環境変数にBOT_TOKENが設定されていないため起動を中止します。');
+    process.exit();
+}
+
+let slackbotConfig = {
     debug: process.env.ENV === "development"
-});
-let bot = controller.spawn({
+};
+Logger.debug(`slackbot's config: ${JSON.stringify(slackbotConfig)}`);
+let controller = Botkit.slackbot(slackbotConfig);
+
+let botControllerConfig = {
     token: process.env.BOT_TOKEN,
     retry: 500
-});
+};
+Logger.debug(`bot controller config: ${JSON.stringify(botControllerConfig)}`);
+let bot = controller.spawn(botControllerConfig);
 
 bot.startRTM();
+Logger.info('ArmyBot startup complete.');
+
+export default controller;
+
 
 if (process.env.MONITORING_TARGET_LOG_FILE != null) {
     Monitor.tailLog(process.env.MONITORING_TARGET_LOG_FILE, errorLog => {
