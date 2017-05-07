@@ -17,12 +17,6 @@ export namespace reaction {
     //     console.log(err);
     //     console.log(response);
     // });
-    // App.bot.say({
-    //     channel: process.env.POSTING_DESTINATION,
-    //     // text: '<@U57FQE6KB|kailx> test'
-    //     text: '@kailx test'
-    //     // text: 'test'
-    // });
     App.controller.hears('ログ監視開始', ['direct_mention'], (bot, message) => {
         
         let d = Q.defer();
