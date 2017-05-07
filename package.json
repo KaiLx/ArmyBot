@@ -2,9 +2,8 @@
   "name": "ArmyBot",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "serve": "typings install && tsc && node index.js",
+    "serve": "typings install && tsc && node scripts/bot",
     "test": "typings install && tsc && ava"
   },
   "keywords": [
@@ -15,6 +14,7 @@
   "dependencies": {
     "botkit": "^0.5.4",
     "moment": "^2.18.1",
+    "q": "^1.5.0",
     "tail": "^1.2.1",
     "typescript": "^2.3.2",
     "typings": "^2.1.1",
