@@ -1,0 +1,10 @@
+# botkit
+spring:
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+
+rtmUrl: "https://slack.com/api/rtm.start?token={token}&simple_latest&no_unreads"
+application:
+  slack:
+    enable: false
+    token: "xoxb-178103882658-b0i8uV34PdQ6NKVjFPOHqpRu"
